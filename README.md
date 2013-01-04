@@ -1,6 +1,3 @@
-signature.js
-============
-
-A novel way for users to electronically enter a signature.
-
 # Demo
+
+http://st3redstripe.github.com/signature/
