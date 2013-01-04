@@ -2,26 +2,56 @@
 	<head>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-		<script src="script.js"></script>
-		<link href='http://fonts.googleapis.com/css?family=Kristi' rel='stylesheet' type='text/css'>
-		<link href="style.css" rel="stylesheet" media="screen">
+		<script src="signature.js"></script>
+		<link href="signature.css" rel="stylesheet" media="screen">
+		<style type="text/css">
+			h1, h3, p {
+				font-family: Arial, Helvetica
+			}
+
+			h1, h3 {
+				margin-bottom: 4px
+			}
+
+			p {
+				font-size: 13px
+			}
+
+			hr {
+				border: 0;
+			    height: 1px;
+			    background: #DDDDDD;
+			    width: 100%;
+			    margin-bottom: 12px;
+			}
+
+			.center {
+				margin: 0px auto;
+				width: 300px;
+			}
+		</style>
+		<script>
+			$(function () {
+				$("#signature").signature();
+			});
+		</script>
 	</head>
 	<body>
 		<div class="center">
 			<h1>Signature.</h1>
 			<hr/>
-			<p>Made by <a href="http://twitter.com/st3redstripe">@st3redstripe</a></p>
+			<p><em>Made by <a href="http://twitter.com/st3redstripe">@st3redstripe</a></em></p>
 			<p>Enter your name and slide to sign...</p>
 			<br/>
 
-			<div class="container">
-				<div class="sig-container">
-					<input class="signature-input placeholder" type="text" value="" maxlength="20"/>
-					<div class="mask"></div>
-					<div class="signature-pretty"></div>
-				</div>
-				<div class="scrubber"></div>
-			</div>
+			<div id="signature"></div>
+
+			<br/>
+			<h3>Usage</h3>
+			<hr/>
+			<code>
+				$("#someDiv").signature();
+			</code>
 		</div>
 	</body>
 </html>
