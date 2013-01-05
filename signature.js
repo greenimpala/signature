@@ -1,18 +1,22 @@
 (function ($){
 $.fn.signature = function () {
+	if (!this.is(':checkbox')) {
+		throw new Error('Must be used on a checkbox.');
+	}
 	var template = '<div class="container"><div class="sig-container"><input class="signature-input placeholder" type="text" value="" maxlength="20"/><div class="mask"></div><div class="signature-pretty"></div></div><div class="scrubber"></div></div>';
 
-	this.html(template);
-	this.addClass('signature');
-
-	var $mask = this.find('.mask');
-	var $signaturePretty = this.find('.signature-pretty');
-	var $scrubber = this.find('.scrubber');
-	var $signatureInput = this.find('.signature-input');
-	var $container = this.find('.container');
-
+	var $checkbox = this;
+	var $el = $(document.createElement('div')).html(template);
+	var $mask = $el.find('.mask');
+	var $signaturePretty = $el.find('.signature-pretty');
+	var $scrubber = $el.find('.scrubber');
+	var $signatureInput = $el.find('.signature-input');
+	var $container = $el.find('.container');
 	var placeHolderText = 'Enter signature...';
 
+	this.prop('checked', false).hide(); // Hide input
+	this.after($el); // Add signature to DOM
+	$el.addClass('signature');
 	$signatureInput.val(placeHolderText);
 
 	function updateElems () {
@@ -21,6 +25,7 @@ $.fn.signature = function () {
 		$mask.width(scrubberLocation - 20);
 
 		$([$mask, $container]).toggleClass("success", (scrubberLocation === "260"));
+		$checkbox.prop('checked', (scrubberLocation === "260"));
 	}
 
 	$scrubber.draggable({

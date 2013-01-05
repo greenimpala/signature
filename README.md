@@ -1,6 +1,6 @@
 signature.js
 =============
-Novel electronic signing
+Turn any form checkbox into a signature input.
 
 
 ## Demo
