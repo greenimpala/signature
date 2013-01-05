@@ -42,6 +42,12 @@ $.fn.signature = function () {
 					duration: 200,
 					step: updateElems
 				});
+			} else {
+				// Clear current callstack
+				// Needed when scrubber is slid very fast
+				setTimout(function () {
+					updateElems();
+				}, 0);
 			}
 		}
 	});
