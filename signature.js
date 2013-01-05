@@ -45,7 +45,7 @@ $.fn.signature = function () {
 			} else {
 				// Clear current callstack
 				// Needed when scrubber is slid very fast
-				setTimout(function () {
+				setTimeout(function () {
 					updateElems();
 				}, 0);
 			}
